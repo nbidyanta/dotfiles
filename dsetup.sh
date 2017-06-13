@@ -20,20 +20,20 @@ alias_entry="alias cdw='cd $HOME/prj'"
 echo "Creating project directory"
 mkdir -p $HOME/prj
 
-echo "Adding lines to .bashrc"
-grep -s "$vi_mode_entry" $HOME/.bashrc
+echo "Attempting to add lines to .bashrc"
+grep -sq "$vi_mode_entry" $HOME/.bashrc
 if [ "$?" -eq "1" ]; then
 	echo -e "\tEnabling Vi mode in bash"
 	echo "$vi_mode_entry" >> $HOME/.bashrc
 fi
 
-grep -s "$dircolor_entry" $HOME/.bashrc
+grep -sq "$dircolor_entry" $HOME/.bashrc
 if [ "$?" -eq "1" ]; then
 	echo -e "\tAdding dircolor entry"
 	echo "$dircolor_entry" >> $HOME/.bashrc
 fi
 
-grep -s "$alias_entry" $HOME/.bashrc
+grep -sq "$alias_entry" $HOME/.bashrc
 if [ "$?" -eq "1" ]; then
 	echo -e "\tCreating an alias for changing into work directory"
 	echo "$alias_entry" >> $HOME/.bashrc
@@ -124,6 +124,7 @@ if [ "$?" -eq "1" ]; then
 		read -p "Do you wish to install ctags? [y/n]: " yn
 		case $yn in
 			[Yy]*)
+				rm -rf /tmp/ctags
 				git clone https://github.com/universal-ctags/ctags.git \
 					/tmp/ctags
 				cd /tmp/ctags && ./autogen.sh && ./configure && \
@@ -137,3 +138,4 @@ if [ "$?" -eq "1" ]; then
 fi
 
 echo "Finished setting up environment"
+echo "Please restart the shell"
