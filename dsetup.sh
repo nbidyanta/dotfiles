@@ -2,16 +2,35 @@
 # Create a basic setup with rust, vim settings and proper bash settings
 # Author: Nilangshu Bidyanta
 
+# Check for prerequisite programs
+check_pre()
+{
+	which $1 > /dev/null
+	if [ "$?" -eq "1" ]; then
+		echo "Prerequisite missing: $1"
+		exit 1
+	else
+		echo "Found $1"
+	fi
+}
+
 echo "Environment setup"
 echo "Prereqeuisites: git, vim, curl, autotools, pkg-config, an internet connection"
 while true; do
 	read -p "Do you wish to initiate the setup procedure? [y/n]: " yn
 	case $yn in
 		[Yy]* ) break;;
-		[Nn]* ) exit;;
+		[Nn]* ) exit 1;;
 		* ) ;;
 	esac
 done
+
+check_pre git
+check_pre vim
+check_pre curl
+check_pre autoconf
+check_pre automake
+check_pre pkg-config
 
 vi_mode_entry="set -o vi"
 dircolor_entry="eval \$(dircolors -b ~/.dircolors.256dark)"
