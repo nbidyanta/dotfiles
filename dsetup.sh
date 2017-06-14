@@ -1,5 +1,5 @@
 #!/bin/bash
-# Create a basic setup with rust, vim settings and proper bash settings
+# Create a basic setup with vim settings and proper bash settings
 # Author: Nilangshu Bidyanta
 
 # Check for prerequisite programs
@@ -114,27 +114,6 @@ if [ ! -d "$HOME/.vim/bundle/syntastic" ]; then
 		$HOME/.vim/bundle/syntastic
 else
 	echo -e "\n\tSyntasic already installed"
-fi
-
-if [ ! -d "$HOME/.vim/bundle/rust.vim" ]; then
-	echo -e "\n\tInstalling rust.vim"
-	git clone --depth=1 https://github.com/rust-lang/rust.vim.git \
-		$HOME/.vim/bundle/rust.vim
-	echo -e "\n\tDon't forget to install rustfmt using:"
-	echo -e "\tcargo install rustfmt\n"
-else
-	echo -e "\n\trust.vim already installed"
-fi
-
-if [ ! -d "$HOME/.cargo" ]; then
-	while true; do
-		read -p "Do you wish to install rust? [y/n]: " yn
-		case $yn in
-			[Yy]* ) curl https://sh.rustup.rs -sSf | sh; break;;
-			[Nn]* ) break;;
-			* ) ;;
-		esac
-	done
 fi
 
 which ctags > /dev/null
