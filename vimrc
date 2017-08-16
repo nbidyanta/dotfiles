@@ -63,3 +63,4 @@ set listchars=tab:▸\ ,eol:¬,trail:░
 
 let g:autotagTagsFile="tags"
 let g:autotagStopAt="$HOME/prj"
+set laststatus=2
