@@ -23,8 +23,9 @@ endfunction
 nnoremap <silent> <F2> :call g:ToggleColorColumn()<CR>
 
 autocmd BufNewFile,BufRead *.c set formatprg=astyle\ -A8\ -t8\ -k3\ -p\ -H\ -xC80\ -xL
-autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -A8\ -t8\ -k3\ -p\ -H\ -xC80\ -xL
+autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -A8\ -t8\ -k1\ -p\ -H\ -xC120\ -xL
 autocmd FileType make setlocal noexpandtab
+autocmd FileType cpp setlocal expandtab tabstop=2 shiftwidth=2 colorcolumn=120
 
 set number
 set showcmd
@@ -64,4 +65,5 @@ set listchars=tab:▸\ ,eol:¬,trail:░
 let g:autotagTagsFile="tags"
 let g:autotagStopAt="$HOME/prj"
 set laststatus=2
-let g:syntastic_cpp_compiler_options = '-std=c++14'
+let g:syntastic_cpp_compiler_options = '-std=c++17'
+let g:syntastic_cpp_compiler = 'g++-7'

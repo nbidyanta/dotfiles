@@ -31,6 +31,8 @@ check_pre curl
 check_pre autoconf
 check_pre automake
 check_pre pkg-config
+check_pre cmake
+check_pre astyle
 
 vi_mode_entry="set -o vi"
 dircolor_entry="eval \$(dircolors -b ~/.dircolors.256dark)"
