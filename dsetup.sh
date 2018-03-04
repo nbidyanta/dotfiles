@@ -15,7 +15,7 @@ check_pre()
 }
 
 echo "Environment setup"
-echo "Prereqeuisites: git, vim, curl, autotools, pkg-config, an internet connection"
+echo "Prereqeuisites: git, vim, curl, autotools, pkg-config, cmake, astyle, an internet connection"
 while true; do
 	read -p "Do you wish to initiate the setup procedure? [y/n]: " yn
 	case $yn in
@@ -108,6 +108,14 @@ if [ ! -d "$HOME/.vim/bundle/vim-colors-solarized" ]; then
 		$HOME/.vim/bundle/vim-colors-solarized
 else
 	echo -e "\n\tSolarized theme already installed"
+fi
+
+if [ ! -d "$HOME/.vim/bundle/vim-cmake-syntax" ]; then
+	echo -e "\n\tInstalling vim cmake syntax files"
+	git clone https://github.com/pboettch/vim-cmake-syntax.git \
+		$HOME/.vim/bundle/vim-cmake-syntax
+else
+	echo -e "\n\tVim Cmake syntax files already installed"
 fi
 
 if [ ! -d "$HOME/.vim/bundle/syntastic" ]; then
