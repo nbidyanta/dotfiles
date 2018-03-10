@@ -118,14 +118,6 @@ else
 	echo -e "\n\tVim Cmake syntax files already installed"
 fi
 
-if [ ! -d "$HOME/.vim/bundle/syntastic" ]; then
-	echo -e "\n\tInstalling Syntastic"
-	git clone --depth=1 https://github.com/vim-syntastic/syntastic.git \
-		$HOME/.vim/bundle/syntastic
-else
-	echo -e "\n\tSyntasic already installed"
-fi
-
 which ctags > /dev/null
 if [ "$?" -eq "1" ]; then
 	while true; do

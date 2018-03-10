@@ -19,7 +19,6 @@ Run the script without any parameters to install:
   - CtrlP
   - Autotag
   - Vim solarized color scheme
-  - Syntastic
 - Bash configuration
 - Bash color scheme
 - Tmux configuration

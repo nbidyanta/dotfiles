@@ -65,5 +65,3 @@ set listchars=tab:▸\ ,eol:¬,trail:░
 let g:autotagTagsFile="tags"
 let g:autotagStopAt="$HOME/prj"
 set laststatus=2
-let g:syntastic_cpp_compiler_options = '-std=c++17'
-let g:syntastic_cpp_compiler = 'g++-7'
